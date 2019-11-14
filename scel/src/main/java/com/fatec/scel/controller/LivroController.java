@@ -44,10 +44,10 @@ public class LivroController {
 			jaExiste = repository.findByIsbn(livro.getIsbn());
 			if (jaExiste == null) {
 				repository.save(livro);
-				mv.addObject("success", "Livro cadastrado com sucesso"); // quando success nao eh nulo
+				mv.addObject("success", "Livro cadastrado com sucesso"); // success nao eh nulo
 				return mv;
 			} else {
-				mv.addObject("fail", "Livro já cadastrado."); // quando fail nao eh nulo msg na tela
+				mv.addObject("fail", "Livro já cadastrado."); // fail nao eh nulo a msg aparece na tela
 				return mv;
 			}
 		} catch (Exception e) {

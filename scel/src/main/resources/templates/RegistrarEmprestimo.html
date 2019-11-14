@@ -25,7 +25,7 @@
 	</header>
 	<div class="container my-5">
 		<br />
-		<h3>Cadastrar Livro</h3>
+		<h3>Registrar Emprestimo</h3>
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
@@ -38,35 +38,29 @@
 									type="text" th:field="*{isbn}" class="form-control" id="isbn"
 									placeholder="isbn"> <span
 									th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}"
-									class="text-
-danger"> </span>
+									class="text-danger"> </span>
 
 							</div>
 						</div>
 						<div class="row">
-							<div class="form-group col-md-8">
-								<label for="autor" class="col-form-label">Autor</label> <input
-									type="text" th:field="*{autor}" class="form-control" id="autor"
-									placeholder="Autor"> <span
-									th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}"
+							<div class="form-group col-md-4">
+								<label for="ra" class="col-form-label">RA</label> <input
+									type="text" th:field="*{ra}" class="form-control" id="ra"
+									placeholder="RA"> <span
+									th:if="${#fields.hasErrors('ra')}" th:errors="*{ra}"
 									class="text-danger"> </span>
+
 							</div>
+
 						</div>
-						<div class="row">
+													
 							<div class="form-group col-md-8">
-								<label for="titulo" class="col-form-label">Titulo</label> <input
-									type="text" th:field="*{titulo}" class="form-control"
-									id="titulo" placeholder="Titulo"> <span
-									th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"
-									class="text-danger"></span>
+										<input type="submit" class="btn btn-primary"
+											value="Confirmar" onclick="consulta();">
+										<input type="button"
+											class="btn btn-primary" value="Cancelar"
+											onclick="consulta();">
 							</div>
-							<div class="form-group col-md-8">
-								<input type="submit" class="btn btn-primary"
-									value="Cadastrar Livro"> <input type="button"
-									class="btn btn-primary" value="Consultar Livro"
-									onclick="consulta();">
-							</div>
-						</div>
 					</form>
 					<!-- chama o alert -->
 					<div th:replace="fragments/alert"></div>
