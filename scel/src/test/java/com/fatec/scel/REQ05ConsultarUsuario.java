@@ -7,13 +7,18 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.fatec.scel.model.Livro;
 import com.fatec.scel.model.LivroRepository;
 import com.fatec.scel.model.Usuario;
 import com.fatec.scel.model.UsuarioRepository;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 class REQ05ConsultarUsuario {
 
 	@Autowired
@@ -23,9 +28,9 @@ class REQ05ConsultarUsuario {
 	private ValidatorFactory validatorFactory;
 
 	@Test
-	public void CT01ConsultaLivro_com_sucesso() {
+	public void CT01ConsultaUsuarioCom_sucesso() {
 		// dado que o livro esta cadastrado
-		usuario = new Usuario("1111", "Jojo", "1jojo.pokemon1@gmail.com", "03276110", "aaaaaaaaa");
+		usuario= new Usuario("1111","Jojo", "1jojo.pokemon1@gmail.com","03276110","aaaaaaaaa");
 		repository.save(usuario);
 		// quando o usurio consulta o livro
 		Usuario ro = repository.findByRa("1111");
@@ -35,7 +40,7 @@ class REQ05ConsultarUsuario {
 	}
 
 	@Test
-	public void CT02DeveDetectarLivroInvalido() {
+	public void CT02DeveDetectarUsuarioInvalido() {
 		usuario = new Usuario("1111", "Jojo", "1jojo.pokemon1@gmail.com", "03276110", "aaaaaaaaa");
 		repository.save(usuario);
 		// quando o usurio consulta o livro
@@ -43,5 +48,5 @@ class REQ05ConsultarUsuario {
 		// entao
 		assertThat(ro).isNull();
 	}
-
+	
 }
